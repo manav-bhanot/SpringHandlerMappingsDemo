@@ -4,7 +4,8 @@ it uses the default handler mappings which are org.springframework.web.servlet.h
 to control the routing of requests to handler objects. However, this behavior can be overridden by configuring another handermapping in <>-servlet.xml
 
 Below are some of the basics about HandlerMappings in Eclipse
-HandlerMapping
+
+
 HandlerMapping is an interface that is implemented by all Objects that map the request to the corresponding Handler Object. A HandlerExecutionChain always wraps the Handler and may also contain one or more HandlerInterceptors. The default Implementations used by the DispatcherServlet are BeanNameUrlHandlerMapping and DefaultAnnotationHandlerMapping.
 
 BeanNameUrlHandlerMapping
