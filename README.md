@@ -3,7 +3,8 @@ This is a demo project to demonstrate how Spring HandlerMappings work. Basically
 it uses the default handler mappings which are org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping and org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping
 to control the routing of requests to handler objects. However, this behavior can be overridden by configuring another handermapping in <>-servlet.xml
 
-Below are some of the basics about HandlerMappings in Eclipse
+Below are some of the basics about HandlerMappings in Spring
+src : http://www.studytrails.com/frameworks/spring/spring-mvc-handler-mappings/
 
 
 HandlerMapping is an interface that is implemented by all Objects that map the request to the corresponding Handler Object. A HandlerExecutionChain always wraps the Handler and may also contain one or more HandlerInterceptors. The default Implementations used by the DispatcherServlet are BeanNameUrlHandlerMapping and DefaultAnnotationHandlerMapping.
