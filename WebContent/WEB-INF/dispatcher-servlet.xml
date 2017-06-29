@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd 
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+	<!-- BeanNameUrlHandlerMapping :: START -->
+	<bean
+		class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="order" value="2" />
+	</bean>
+	<bean name="/welcomeUser"
+		class="edu.csulb.handlermappingsdemo.controller.WelcomeUserController" />
+	<!-- BeanNameUrlHandlerMapping :: ENDS -->
+
+
+	<!-- SimpleUrlHandlerMapping :: START -->
+	<bean id="helloWorldController"
+		class="edu.csulb.handlermappingsdemo.controller.HelloWorldController" />
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<value>
+				/helloWorld.htm=helloWorldController
+				/*/hello.htm=helloWorldController
+				/hello*.htm=helloWorldController
+			</value>
+		</property>
+		<property name="order" value="0" />
+	</bean>
+	<!-- SimpleUrlHandlerMapping :: END -->
+
+	<!-- ControllerClassNameHandlerMapping :: START -->
+	<!-- ControllerClassNameHandlerMapping class uses a convention to determine 
+		the mapping between request URLs and the Controller instances that are to 
+		handle those requests. In this case, there is no need to declare a bean name 
+		for the Controller. In the example below, the ControllerClassNameHandlerMapping 
+		will map all URL requests that start with addNumber to the AddNumberController. -->
+	<bean
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="caseSensitive" value="true" />
+		<property name="order" value="1" />
+	</bean>
+	<bean class="edu.csulb.handlermappingsdemo.controller.AddNumberController" />
+	<bean class="edu.csulb.handlermappingsdemo.controller.CurrentTimeController" />
+	<!-- ControllerClassNameHandlerMapping :: END -->
+
+</beans>

@@ -1,0 +1,4 @@
+edu\csulb\handlermappingsdemo\controller\WelcomeUserController.class
+edu\csulb\handlermappingsdemo\controller\AddNumberController.class
+edu\csulb\handlermappingsdemo\controller\CurrentTimeController.class
+edu\csulb\handlermappingsdemo\controller\HelloWorldController.class
